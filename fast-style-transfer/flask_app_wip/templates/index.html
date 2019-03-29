@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <!-- STYLESHEET -->
+      <link rel="stylesheet" type="text/css" href="./static/css/main.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+      <!-- JAVSCRIPT -->
+      <script src="./static/js/main.js"></script>
+   </head>
+   <body>
+      <div class="content">
+         <h1 class="title"> STUDIO GHIBLI NEURAL STYLE TRANSFER DEMO </h1>
+         <form id="form" action = "http://localhost:5000" method = "POST" 
+               enctype = "multipart/form-data">
+         <div class="image-box center">
+            {% if style_out == None %} <!--Jinja logic-->
+            <!-- Show upload buttons if there is no prediction results yet. -->
+               <img id="upload-img" class="center" 
+                    src="./static/img/upload.png" width="100">
+               <label for="file-upload" class="center custom-button">
+                  <i class="fa fa-upload"></i> Upload your Content Image
+                  <input type="file" id="file-upload" name="image" onchange=submit() />
+               </label> 
+            {% else %}
+            <!-- Show generation results. -->
+               <p class="result"> Here is your Studio Ghibli-ified Image! </p>
+               <img src="{{url_for('static', filename='output.jpg')}}" />
+            {% endif %}
+         </div>
+            {% if style_out != None %}
+            <!-- Show upload button for follow up predictions. -->
+               <label for="file-upload" class="center custom-button">
+                  <i class="fa fa-upload"></i> Upload another Content Image!
+                  <input type="file" id="file-upload" name="image" onchange=submit() />
+               </label>
+            {% endif %}
+         </form>  
+      </div>
+   </body>
+</html>
