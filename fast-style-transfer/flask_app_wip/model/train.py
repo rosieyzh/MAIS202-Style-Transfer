@@ -13,8 +13,8 @@ import model.processing_methods as PM
 # Look to the path of your current working directory
 
 ghibliImg =1
-save_model_path = './models/results/model{}.pth'.format(ghibliImg)
-save_optimizer_path = './models/results/optimizer{}.pth'.format(ghibliImg)
+save_model_path = './results/model{}.pth'.format(ghibliImg)
+save_optimizer_path = './results/optimizer{}.pth'.format(ghibliImg)
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 imsize = 256
 
@@ -34,7 +34,7 @@ class GhibliModel:
 
         vgg = model.getmodel.Vgg16(requires_grad=False).to(device)
 
-        style = PM.load_image("./assets/style/ghibli_square_{}.png".format(ghibliImg))
+        style = PM.load_image("../assets/style/ghibli_square_{}.png".format(ghibliImg))
         style = style.repeat(batch_size, 1, 1, 1).to(device)
         style = PM.normalization(style)
         print(style)
