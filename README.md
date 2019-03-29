@@ -1,5 +1,5 @@
 # MAIS202-Style-Transfer
-This repository includes an original implementation and fast implementation of neural style transfer using Studio Ghibli images for the final project of MAIS202 administered by McGill Artificial Intelligence Society. 
+This repository includes a Pytorch original implementation and fast implementation of neural style transfer using Studio Ghibli images for the final project of MAIS202 administered by McGill Artificial Intelligence Society. 
 
 ## Original Style Transfer Implementation
 This implementation follows [A Neural Algorithm of Artistic Style](https://arxiv.org/abs/1508.06576) by Gatys et al. (2015).
